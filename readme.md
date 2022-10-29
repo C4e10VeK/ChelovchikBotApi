@@ -27,7 +27,7 @@ ___
 ### RunCommand
 
 #### Request
-`{ "command": string, "username": text }`
+`{ "text": string, "username": text }`
 
 #### Response
 `{ "text": string }`
