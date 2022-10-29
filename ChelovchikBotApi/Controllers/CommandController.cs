@@ -28,7 +28,7 @@ public class CommandController : Controller
         if (command is null or {Text: null})
             return BadRequest(new TextResponse { Text = "Не указана команда"});
 
-        var strings = command.Text.Split(" ");
+        var strings = command.Text.Trim().Split(" ");
         var commandName = strings[0];
         var arguments = strings[1..];
 
