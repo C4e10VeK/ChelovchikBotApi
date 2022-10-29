@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChelovchikBotApi", "ChelovchikBotApi\ChelovchikBotApi.csproj", "{4EF4CF9B-DCE9-469C-B049-ED6CD83485B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchBot.BlabLib", "TwitchBot.BlabLib\TwitchBot.BlabLib.csproj", "{3099748B-F770-4123-B602-A8BEE9BAD191}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4EF4CF9B-DCE9-469C-B049-ED6CD83485B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EF4CF9B-DCE9-469C-B049-ED6CD83485B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EF4CF9B-DCE9-469C-B049-ED6CD83485B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EF4CF9B-DCE9-469C-B049-ED6CD83485B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3099748B-F770-4123-B602-A8BEE9BAD191}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3099748B-F770-4123-B602-A8BEE9BAD191}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3099748B-F770-4123-B602-A8BEE9BAD191}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3099748B-F770-4123-B602-A8BEE9BAD191}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
