@@ -1,4 +1,4 @@
-namespace ChelovchikBotApi.Models;
+namespace ChelovchikBotApi.Domain.Models;
 
 public class MongoDBConfig
 {

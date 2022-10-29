@@ -1,6 +1,7 @@
 using ChelovchikBotApi.Authentication;
-using ChelovchikBotApi.Models;
-using ChelovchikBotApi.Repository;
+using ChelovchikBotApi.Domain.Models;
+using ChelovchikBotApi.Domain.Repositories;
+using ChelovchikBotApi.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.OpenApi.Models;
 

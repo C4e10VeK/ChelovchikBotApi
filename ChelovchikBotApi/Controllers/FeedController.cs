@@ -1,7 +1,8 @@
+using ChelovchikBotApi.Domain.Models.Repository;
+using ChelovchikBotApi.Domain.Models.Request;
+using ChelovchikBotApi.Domain.Models.Response;
+using ChelovchikBotApi.Domain.Repositories;
 using ChelovchikBotApi.Extensions;
-using ChelovchikBotApi.Models;
-using ChelovchikBotApi.Models.Response;
-using ChelovchikBotApi.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ChelovchikBotApi.Controllers;

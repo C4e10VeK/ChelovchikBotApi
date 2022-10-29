@@ -1,9 +1,11 @@
-using ChelovchikBotApi.Models;
+using ChelovchikBotApi.Domain.Models;
+using ChelovchikBotApi.Domain.Models.Repository;
+using ChelovchikBotApi.Domain.Repositories;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace ChelovchikBotApi.Repository;
+namespace ChelovchikBotApi.Infrastructure.Repositories;
 
 public class FeedRepository : IFeedRepository, IUserRepository
 {

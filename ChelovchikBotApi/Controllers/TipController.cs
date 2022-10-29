@@ -1,5 +1,5 @@
-using ChelovchikBotApi.Models;
-using ChelovchikBotApi.Models.Response;
+using ChelovchikBotApi.Domain.Models.Request;
+using ChelovchikBotApi.Domain.Models.Response;
 using Microsoft.AspNetCore.Mvc;
 using TwitchBot.BlabLib;
 using TwitchBot.BlabLib.Models;

@@ -1,6 +1,6 @@
 using System.Text;
-using ChelovchikBotApi.Models;
-using ChelovchikBotApi.Repository;
+using ChelovchikBotApi.Domain.Models.Repository;
+using ChelovchikBotApi.Domain.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,7 +1,7 @@
-using ChelovchikBotApi.Models;
+using ChelovchikBotApi.Domain.Models.Repository;
 using MongoDB.Bson;
 
-namespace ChelovchikBotApi.Repository;
+namespace ChelovchikBotApi.Domain.Repositories;
 
 public interface IFeedRepository
 {

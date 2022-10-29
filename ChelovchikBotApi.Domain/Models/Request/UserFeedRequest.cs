@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace ChelovchikBotApi.Models;
+namespace ChelovchikBotApi.Domain.Models.Request;
 
 public class UserFeedRequest
 {

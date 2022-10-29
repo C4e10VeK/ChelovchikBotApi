@@ -1,7 +1,7 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace ChelovchikBotApi.Models;
+namespace ChelovchikBotApi.Domain.Models.Repository;
 
 public class User
 {
