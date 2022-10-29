@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace ChelovchikBotApi.Domain.Models.Response;
 
-public class ResponseText
+public class TextResponse
 {
     [JsonProperty("text")]
     public string Text { get; set; }

@@ -1,3 +1,4 @@
+using System.Net.Mime;
 using System.Text;
 using ChelovchikBotApi.Domain.Models.Repository;
 using ChelovchikBotApi.Domain.Repositories;
@@ -17,6 +18,9 @@ public class LoginController : Controller
     }
 
     [HttpPost(Name = "Login")]
+    [Consumes(MediaTypeNames.Application.Json)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     public async Task<IActionResult> Login([FromBody] WebApiUser webApiUser)
     {
         var users = await _feedRepository.GetApiUsers();

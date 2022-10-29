@@ -1,13 +1,15 @@
 using ChelovchikBotApi.Authentication;
 using ChelovchikBotApi.Domain.Models;
 using ChelovchikBotApi.Domain.Repositories;
+using ChelovchikBotApi.Domain.Services;
 using ChelovchikBotApi.Infrastructure.Repositories;
+using ChelovchikBotApi.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.WebHost.UseUrls("http://*:5000");
+// builder.WebHost.UseUrls("http://*:5000");
 
 builder.Host.UseSystemd();
 // Add services to the container.
@@ -47,6 +49,7 @@ builder.Services.AddAuthorization();
 builder.Services.Configure<MongoDBConfig>(builder.Configuration.GetSection("MongoDBConnection"));
 builder.Services.AddSingleton<IFeedRepository, FeedRepository>();
 builder.Services.AddSingleton<IUserRepository, FeedRepository>();
+builder.Services.AddSingleton<ICommandService, CommandService>();
 
 var app = builder.Build();
 
