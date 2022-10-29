@@ -26,13 +26,13 @@
 
 ### How to use my api
 
-Ip: 185.14.45.134
+Ip: 185.14.45.134:5000
 
 Base usage: api/{controller}/{action}
 
 Authentication: api/Login
 
-| Api                                      | Type | Respnse code                            |
+| Api                                      | Type | Response code                           |
 |------------------------------------------|------|-----------------------------------------|
 | [Login](#login)                          | Post | Ok(200), Unauthorized(401)              |
 | [Tip/GetTip](#tipgettip)                 | Post | OK(200)                                 |
