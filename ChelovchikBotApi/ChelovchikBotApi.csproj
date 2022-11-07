@@ -4,6 +4,7 @@
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
@@ -16,6 +17,11 @@
       <ProjectReference Include="..\ChelovchikBotApi.Domain\ChelovchikBotApi.Domain.csproj" />
       <ProjectReference Include="..\ChelovchikBotApi.Infrastructure\ChelovchikBotApi.Infrastructure.csproj" />
       <ProjectReference Include="..\TwitchBot.BlabLib\TwitchBot.BlabLib.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Dockerfile" />
+      <None Remove=".dockerignore" />
     </ItemGroup>
 
 </Project>

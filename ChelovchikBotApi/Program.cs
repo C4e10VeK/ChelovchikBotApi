@@ -9,8 +9,6 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// builder.WebHost.UseUrls("http://*:5000");
-
 builder.Host.UseSystemd();
 // Add services to the container.
 builder.Services.AddControllers().AddNewtonsoftJson();
@@ -62,7 +60,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseHttpsRedirection();
 
 app.MapControllers().RequireAuthorization();
 

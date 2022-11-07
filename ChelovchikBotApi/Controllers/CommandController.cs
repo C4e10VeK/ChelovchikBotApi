@@ -22,7 +22,6 @@ public class CommandController : Controller
     [Consumes(MediaTypeNames.Application.Json)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> RunCommand([FromBody] CommandRequest? command)
     {
         if (command is null or {Text: null})
@@ -40,7 +39,7 @@ public class CommandController : Controller
 
         var result = await _commandService.Execute(commandName, context);
 
-        return result is null or "" ? StatusCode(500, new TextResponse {Text = ""}) : Ok(new TextResponse {Text = result});
+        return result is null or "" ? BadRequest(new TextResponse {Text = ""}) : Ok(new TextResponse {Text = result});
     }
 
 }

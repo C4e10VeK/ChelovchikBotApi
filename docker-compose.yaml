@@ -1,0 +1,50 @@
+version: "3.9"
+services:
+  mongo_db:
+    image: mongo
+    volumes:
+      - "/root/mdb/data:/data/db"
+    restart: unless-stopped
+
+  mongo_express:
+    image: mongo-express
+    ports:
+      - "8080:8081"
+    expose:
+      - 8081
+    links:
+      - mongo_db
+    depends_on:
+      - mongo_db
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongo_db
+      ME_CONFIG_BASICAUTH_USERNAME: che10vechik
+      ME_CONFIG_BASICAUTH_PASSWORD: blin2ypi
+    restart: unless-stopped
+    
+  bot_api:
+    build: ChelovchikBotApi
+    expose:
+      - 5000
+    links:
+      - mongo_db
+    depends_on:
+      - mongo_db
+    environment:
+      ASPNETCORE_URLS: http://+:5000
+    restart: unless-stopped
+    
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /root/nginx:/etc/nginx/conf.d
+      - /root/SiteVisit:/var/www/SiteVisit
+      - /root/certbot/www:/var/www/certbot
+      - /etc/letsencrypt:/etc/letsencrypt
+    depends_on:
+      - mongo_db
+    restart: unless-stopped 
+    
