@@ -1,9 +1,9 @@
 using System.Net.Mime;
 using System.Text;
-using ChelovchikBotApi.Domain.Models.Repository;
-using ChelovchikBotApi.Domain.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using IUserRepository = ChelovchikBotApi.Repositories.IUserRepository;
+using WebApiUser = ChelovchikBotApi.Models.Repository.WebApiUser;
 
 namespace ChelovchikBotApi.Controllers;
 
@@ -21,9 +21,9 @@ public class LoginController : Controller
     [Consumes(MediaTypeNames.Application.Json)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-    public async Task<IActionResult> Login([FromBody] WebApiUser webApiUser)
+    public IActionResult Login([FromBody] WebApiUser webApiUser)
     {
-        var users = await _feedRepository.GetApiUsers();
+        var users = _feedRepository.GetApiUsers();
 
         if (!users.Any(u => u.Login == webApiUser.Login && u.Password == webApiUser.Password))
             return Unauthorized();

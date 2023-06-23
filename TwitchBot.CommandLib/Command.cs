@@ -19,9 +19,10 @@ internal class Command
     {
         if (Module is null) return "";
 
-        if (CommandMethod?.Invoke(Module, new object?[] {context}) is Task<string?> task)
+        var res = CommandMethod?.Invoke(Module, new object?[] { context }); 
+        if (res is Task<string?> task)
             return await task;
 
-        return "";
+        return res as string;
     }
 }

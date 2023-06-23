@@ -10,13 +10,14 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.10" />
         <PackageReference Include="Microsoft.Extensions.Hosting.Systemd" Version="6.0.0" />
+        <PackageReference Include="MongoDB.Driver" Version="2.19.2" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+        <PackageReference Include="TwitchLib.Api" Version="3.10.0-preview-e47ba7f" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ChelovchikBotApi.Domain\ChelovchikBotApi.Domain.csproj" />
-      <ProjectReference Include="..\ChelovchikBotApi.Infrastructure\ChelovchikBotApi.Infrastructure.csproj" />
       <ProjectReference Include="..\TwitchBot.BlabLib\TwitchBot.BlabLib.csproj" />
+      <ProjectReference Include="..\TwitchBot.CommandLib\TwitchBot.CommandLib.csproj" />
     </ItemGroup>
 
     <ItemGroup>

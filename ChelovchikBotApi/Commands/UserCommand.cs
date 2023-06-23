@@ -1,8 +1,8 @@
-using ChelovchikBotApi.Domain.Repositories;
+﻿using ChelovchikBotApi.Repositories;
 using TwitchBot.CommandLib.Attributes;
 using TwitchBot.CommandLib.Models;
 
-namespace ChelovchikBotApi.Infrastructure.Commands;
+namespace ChelovchikBotApi.Commands;
 
 public class UserCommand : CommandModule
 {

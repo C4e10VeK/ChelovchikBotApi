@@ -4,11 +4,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChelovchikBotApi", "Chelovc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchBot.BlabLib", "TwitchBot.BlabLib\TwitchBot.BlabLib.csproj", "{3099748B-F770-4123-B602-A8BEE9BAD191}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChelovchikBotApi.Domain", "ChelovchikBotApi.Domain\ChelovchikBotApi.Domain.csproj", "{8E3FFB8B-80E3-4701-9C0E-9E6930E81C1E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChelovchikBotApi.Infrastructure", "ChelovchikBotApi.Infrastructure\ChelovchikBotApi.Infrastructure.csproj", "{9F12D58E-7673-474B-A0CD-2F866EB7FAD9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchBot.CommandLib", "TwitchBot.CommandLib\TwitchBot.CommandLib.csproj", "{83FB6779-0B27-4990-9613-E0B50D2A6B77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandTest", "CommandTest\CommandTest.csproj", "{0D6181BF-421C-4B2E-ABD0-2231CAE026D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,17 +22,13 @@ Global
 		{3099748B-F770-4123-B602-A8BEE9BAD191}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3099748B-F770-4123-B602-A8BEE9BAD191}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3099748B-F770-4123-B602-A8BEE9BAD191}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8E3FFB8B-80E3-4701-9C0E-9E6930E81C1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8E3FFB8B-80E3-4701-9C0E-9E6930E81C1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8E3FFB8B-80E3-4701-9C0E-9E6930E81C1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8E3FFB8B-80E3-4701-9C0E-9E6930E81C1E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9F12D58E-7673-474B-A0CD-2F866EB7FAD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9F12D58E-7673-474B-A0CD-2F866EB7FAD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9F12D58E-7673-474B-A0CD-2F866EB7FAD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9F12D58E-7673-474B-A0CD-2F866EB7FAD9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{83FB6779-0B27-4990-9613-E0B50D2A6B77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{83FB6779-0B27-4990-9613-E0B50D2A6B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83FB6779-0B27-4990-9613-E0B50D2A6B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83FB6779-0B27-4990-9613-E0B50D2A6B77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D6181BF-421C-4B2E-ABD0-2231CAE026D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D6181BF-421C-4B2E-ABD0-2231CAE026D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D6181BF-421C-4B2E-ABD0-2231CAE026D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D6181BF-421C-4B2E-ABD0-2231CAE026D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

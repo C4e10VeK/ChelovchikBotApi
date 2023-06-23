@@ -1,15 +1,12 @@
 using ChelovchikBotApi.Authentication;
-using ChelovchikBotApi.Domain.Models;
-using ChelovchikBotApi.Domain.Repositories;
-using ChelovchikBotApi.Domain.Services;
-using ChelovchikBotApi.Infrastructure.Repositories;
-using ChelovchikBotApi.Infrastructure.Services;
+using ChelovchikBotApi.Models;
+using ChelovchikBotApi.Repositories;
+using ChelovchikBotApi.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Host.UseSystemd();
 // Add services to the container.
 builder.Services.AddControllers().AddNewtonsoftJson();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -45,6 +42,7 @@ builder.Services.AddAuthentication("Basic")
 builder.Services.AddAuthorization();
 
 builder.Services.Configure<MongoDBConfig>(builder.Configuration.GetSection("MongoDBConnection"));
+builder.Services.AddSingleton<FeedDbContext>();
 builder.Services.AddSingleton<IFeedRepository, FeedRepository>();
 builder.Services.AddSingleton<IUserRepository, FeedRepository>();
 builder.Services.AddSingleton<ICommandService, CommandService>();

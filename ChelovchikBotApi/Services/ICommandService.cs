@@ -1,6 +1,6 @@
 using TwitchBot.CommandLib.Models;
 
-namespace ChelovchikBotApi.Domain.Services;
+namespace ChelovchikBotApi.Services;
 
 public interface ICommandService
 {

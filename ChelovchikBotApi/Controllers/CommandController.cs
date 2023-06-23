@@ -1,7 +1,7 @@
 using System.Net.Mime;
-using ChelovchikBotApi.Domain.Models.Request;
-using ChelovchikBotApi.Domain.Models.Response;
-using ChelovchikBotApi.Domain.Services;
+using ChelovchikBotApi.Models.Request;
+using ChelovchikBotApi.Models.Response;
+using ChelovchikBotApi.Services;
 using Microsoft.AspNetCore.Mvc;
 using TwitchBot.CommandLib.Models;
 

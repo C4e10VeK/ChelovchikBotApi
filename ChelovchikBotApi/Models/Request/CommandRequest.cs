@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace ChelovchikBotApi.Domain.Models.Request;
+namespace ChelovchikBotApi.Models.Request;
 
 public class CommandRequest
 {

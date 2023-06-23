@@ -1,9 +1,9 @@
-using TwitchBot.BlabLib;
+﻿using TwitchBot.BlabLib;
 using TwitchBot.BlabLib.Models;
 using TwitchBot.CommandLib.Attributes;
 using TwitchBot.CommandLib.Models;
 
-namespace ChelovchikBotApi.Infrastructure.Commands;
+namespace ChelovchikBotApi.Commands;
 
 public class AdviceCommand : CommandModule
 {

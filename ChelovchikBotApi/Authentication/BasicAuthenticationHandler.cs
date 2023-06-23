@@ -1,9 +1,9 @@
 using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
-using ChelovchikBotApi.Domain.Repositories;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Options;
+using IUserRepository = ChelovchikBotApi.Repositories.IUserRepository;
 
 namespace ChelovchikBotApi.Authentication;
 
@@ -22,25 +22,25 @@ public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSc
         _userRepository = userRepository;
     }
 
-    protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
+    protected override Task<AuthenticateResult> HandleAuthenticateAsync()
     {
         if (!Request.Headers.ContainsKey("Authorization"))
-            return AuthenticateResult.Fail("Authorization required");
+            return Task.FromResult(AuthenticateResult.Fail("Authorization required"));
 
         var authorizationHeader = Request.Headers["Authorization"].ToString();
         if (!authorizationHeader.StartsWith("Basic"))
-            return AuthenticateResult.Fail("Incorrect authorization format");
+            return Task.FromResult(AuthenticateResult.Fail("Incorrect authorization format"));
 
         var token = authorizationHeader["Basic ".Length..].Trim();
         var encodingCredentials = Encoding.UTF8.GetString(Convert.FromBase64String(token));
         var credentials = encodingCredentials.Split(":");
         if (credentials.Length < 2)
-            return AuthenticateResult.Fail("Incorrect token");
+            return Task.FromResult(AuthenticateResult.Fail("Incorrect token"));
 
-        var users = await _userRepository.GetApiUsers();
+        var users = _userRepository.GetApiUsers();
         var user = users.FirstOrDefault(u => u.Login == credentials[0] && u.Password == credentials[1], null);
         if (user is null)
-            return AuthenticateResult.Fail("");
+            return Task.FromResult(AuthenticateResult.Fail("User undefined"));
 
         var claims = new[]
         {
@@ -52,6 +52,6 @@ public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSc
         var claimsPrincipal = new ClaimsPrincipal(identity);
         var ticket = new AuthenticationTicket(claimsPrincipal, Scheme.Name);
         
-        return AuthenticateResult.Success(ticket);
+        return Task.FromResult(AuthenticateResult.Success(ticket));
     }
 }

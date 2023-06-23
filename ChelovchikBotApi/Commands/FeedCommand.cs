@@ -1,10 +1,11 @@
-using ChelovchikBotApi.Domain.Models.Repository;
-using ChelovchikBotApi.Domain.Repositories;
+﻿using ChelovchikBotApi.Domain.Models.Repository;
 using ChelovchikBotApi.Extensions;
+using ChelovchikBotApi.Repositories;
 using TwitchBot.CommandLib.Attributes;
 using TwitchBot.CommandLib.Models;
+using TwitchLib.Api;
 
-namespace ChelovchikBotApi.Infrastructure.Commands;
+namespace ChelovchikBotApi.Commands;
 
 [Group(Name = "feed")]
 public class FeedCommand : CommandModule
@@ -19,9 +20,9 @@ public class FeedCommand : CommandModule
     }
     
     [Command(Name = "top")]
-    public async Task<string?> GetTop(CommandContext context)
+    public string? GetTop(CommandContext context)
     {
-        var smiles = (await _feedRepository.GetSmiles())
+        var smiles = _feedRepository.GetSmiles()
             .Where(s => s.Size > 0)
             .OrderByDescending(s => s.Size)
             .Take(Range.EndAt(4))
@@ -59,7 +60,7 @@ public class FeedCommand : CommandModule
             return $"Можно кормить {string.Join(" ", availableSmiles)}";
         }
 
-        var smileName = context.Arguments.First();
+        var smileName = context.Arguments[0];
         var smile = await _feedRepository.GetSmile(smileName);
         if (smile is null)
         {
@@ -102,7 +103,7 @@ public class FeedCommand : CommandModule
             return "Пользователь еще никого не кормил";
         }
 
-        var smiles = (await _feedRepository.GetSmiles(concreteUsername)).Select(s => s.Name).ToList();
+        var smiles = _feedRepository.GetSmiles(concreteUsername).Select(s => s.Name).ToList();
 
         return $"{startStr} {foundUser.FeedCount} раз(а), покормленные смайлы - {string.Join(" , ", smiles)}";
     }

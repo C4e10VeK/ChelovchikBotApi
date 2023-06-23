@@ -1,10 +1,9 @@
-using ChelovchikBotApi.Domain.Repositories;
-using ChelovchikBotApi.Domain.Services;
-using ChelovchikBotApi.Infrastructure.Commands;
+using ChelovchikBotApi.Commands;
+using ChelovchikBotApi.Repositories;
 using TwitchBot.CommandLib;
 using TwitchBot.CommandLib.Models;
 
-namespace ChelovchikBotApi.Infrastructure.Services;
+namespace ChelovchikBotApi.Services;
 
 public class CommandService : ICommandService
 {
@@ -15,7 +14,6 @@ public class CommandService : ICommandService
         _container = new CommandContainer()
             .Add<FeedCommand>(feedRepository)
             .Add<UserCommand>(feedRepository)
-            .Add<AnimeCommand>(feedRepository)
             .Add<AdviceCommand>();
     }
 

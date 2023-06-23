@@ -2,7 +2,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 
-namespace ChelovchikBotApi.Domain.Models.Repository;
+namespace ChelovchikBotApi.Models.Repository;
 
 public class Smile
 {

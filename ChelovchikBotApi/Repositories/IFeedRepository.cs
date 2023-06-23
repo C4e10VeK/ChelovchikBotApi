@@ -1,13 +1,14 @@
-using ChelovchikBotApi.Domain.Models.Repository;
 using MongoDB.Bson;
+using Smile = ChelovchikBotApi.Models.Repository.Smile;
+using User = ChelovchikBotApi.Models.Repository.User;
 
-namespace ChelovchikBotApi.Domain.Repositories;
+namespace ChelovchikBotApi.Repositories;
 
 public interface IFeedRepository
 {
-    Task<List<User>> GetUsersAsync();
-    Task<List<Smile>> GetSmiles();
-    Task<List<Smile>> GetSmiles(string user);
+    IEnumerable<User> GetUsersAsync();
+    IEnumerable<Smile> GetSmiles();
+    IEnumerable<Smile> GetSmiles(string user);
     Task<List<string?>> GetAvailableSmiles();
     Task<User?> GetUser(ObjectId id);
     Task<User?> GetUser(string name);

@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace ChelovchikBotApi.Domain.Models.Response;
+namespace ChelovchikBotApi.Models.Response;
 
 public class TextResponse
 {
