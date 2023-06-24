@@ -1,9 +1,9 @@
-﻿using ChelovchikBotApi.Domain.Models.Repository;
-using ChelovchikBotApi.Extensions;
+﻿using ChelovchikBotApi.Extensions;
+using ChelovchikBotApi.Models.Repository;
 using ChelovchikBotApi.Repositories;
 using TwitchBot.CommandLib.Attributes;
 using TwitchBot.CommandLib.Models;
-using TwitchLib.Api;
+using TwitchLib.Api.Interfaces;
 
 namespace ChelovchikBotApi.Commands;
 
@@ -12,10 +12,12 @@ public class FeedCommand : CommandModule
 {
     private readonly IFeedRepository _feedRepository;
     private readonly Random _random;
+    private readonly ITwitchAPI _twitchApi;
 
-    public FeedCommand(IFeedRepository feedRepository)
+    public FeedCommand(IFeedRepository feedRepository, ITwitchAPI twitchApi)
     {
         _feedRepository = feedRepository;
+        _twitchApi = twitchApi;
         _random = new Random(445662);
     }
     
@@ -49,9 +51,11 @@ public class FeedCommand : CommandModule
     {
         if (context.Description is not string username)
             return "";
-        
-        var user = await _feedRepository.GetUser(username) ??
-                   await _feedRepository.AddUser(username);
+
+        var userId = await _twitchApi.GetChannelId(username);
+
+        var user = await _feedRepository.GetUser(userId) ??
+                   await _feedRepository.AddUser(userId);
         if (user is null) return "";
 
         if (!context.Arguments.Any())
@@ -80,8 +84,8 @@ public class FeedCommand : CommandModule
 
         if (!user.FeedSmiles.ContainsKey(smileName))
             user.FeedSmiles.Add(smile.Name, smile.Id);
-        if (!smile.Users.Contains(user.Name))
-            smile.Users.Add(user.Name);
+        if (!smile.Users.Contains(user.UserId))
+            smile.Users.Add(user.UserId);
 
         await _feedRepository.UpdateSmile(smile.Id, smile);
         await _feedRepository.UpdateUser(user.Id, user);
@@ -103,7 +107,7 @@ public class FeedCommand : CommandModule
             return "Пользователь еще никого не кормил";
         }
 
-        var smiles = _feedRepository.GetSmiles(concreteUsername).Select(s => s.Name).ToList();
+        var smiles = _feedRepository.GetSmiles(concreteUsername).Select(s => s.Name);
 
         return $"{startStr} {foundUser.FeedCount} раз(а), покормленные смайлы - {string.Join(" , ", smiles)}";
     }

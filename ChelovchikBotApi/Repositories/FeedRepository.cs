@@ -1,5 +1,4 @@
-﻿using ChelovchikBotApi.Domain.Models.Repository;
-using ChelovchikBotApi.Models.Repository;
+﻿using ChelovchikBotApi.Models.Repository;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -35,10 +34,10 @@ public class FeedRepository : IFeedRepository, IUserRepository
         return await _feedDbContext.Users.CountDocumentsAsync(u => u.Id == id) > 0 ? await cursor.SingleAsync() : null;
     }
     
-    public async Task<User?> GetUser(string name)
+    public async Task<User?> GetUser(string userId)
     {
-        var cursor = await _feedDbContext.Users.FindAsync(u => u.Name == name);
-        return await _feedDbContext.Users.CountDocumentsAsync(u => u.Name == name) > 0 ? await cursor.SingleAsync() : null;
+        var cursor = await _feedDbContext.Users.FindAsync(u => u.UserId == userId);
+        return await _feedDbContext.Users.CountDocumentsAsync(u => u.UserId == userId) > 0 ? await cursor.SingleAsync() : null;
     }
     
     public async Task<Smile?> GetSmile(ObjectId id)
@@ -78,18 +77,18 @@ public class FeedRepository : IFeedRepository, IUserRepository
         return await GetSmile(id);
     }
 
-    public async Task<User?> AddUser(string name)
+    public async Task<User?> AddUser(string userId)
     {
         var user = new User
         {
-            Name = name,
+            UserId = userId,
             Permission = UserPermission.User,
             IsBanned = false,
             TimeToFeed = DateTime.UtcNow
         };
 
         await AddUser(user);
-        return await GetUser(name);
+        return await GetUser(userId);
     }
 
     public async Task<Smile?> AddSmile(string name)

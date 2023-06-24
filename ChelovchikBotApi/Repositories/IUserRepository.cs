@@ -1,4 +1,4 @@
-using WebApiUser = ChelovchikBotApi.Models.Repository.WebApiUser;
+using ChelovchikBotApi.Models.Repository;
 
 namespace ChelovchikBotApi.Repositories;
 

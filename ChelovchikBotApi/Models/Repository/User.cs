@@ -1,4 +1,3 @@
-using ChelovchikBotApi.Domain.Models.Repository;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
@@ -9,7 +8,7 @@ public class User
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
     public ObjectId Id { get; set; }
-    public string? Name { get; set; }
+    public string? UserId { get; set; }
     
     [BsonDefaultValue(UserPermission.User)]
     public UserPermission Permission { get; set; }

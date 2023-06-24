@@ -1,4 +1,4 @@
-namespace ChelovchikBotApi.Domain.Models.Repository;
+namespace ChelovchikBotApi.Models.Repository;
 
 public enum UserPermission
 {

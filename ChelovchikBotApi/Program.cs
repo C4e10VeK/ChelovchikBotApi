@@ -42,6 +42,7 @@ builder.Services.AddAuthentication("Basic")
 builder.Services.AddAuthorization();
 
 builder.Services.Configure<MongoDBConfig>(builder.Configuration.GetSection("MongoDBConnection"));
+builder.Services.Configure<TwitchAPIConfig>(builder.Configuration.GetSection("TwitchAPI"));
 builder.Services.AddSingleton<FeedDbContext>();
 builder.Services.AddSingleton<IFeedRepository, FeedRepository>();
 builder.Services.AddSingleton<IUserRepository, FeedRepository>();
